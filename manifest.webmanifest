@@ -1,0 +1,16 @@
+{
+    "name": "E-Nest Admin Panel",
+    "short_name": "Admin Panel",
+    "start_url": ".",
+    "display": "standalone",
+    "theme_color": "#212c95",
+    "background_color": "#212c95",
+    "description": "E-Nest Application Management Panel",
+    "icons": [
+        {
+            "src": "website/thump_1601924302.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ]
+}
