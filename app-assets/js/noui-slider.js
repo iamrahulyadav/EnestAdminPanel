@@ -7,7 +7,7 @@
 	Author: PIXINVENT
 	Author URL: http://www.themeforest.net/user/pixinvent
 ==========================================================================================*/
-$(document).ready(function(){
+$(document).ready(function () {
 
 
 	/********************************************
@@ -15,13 +15,13 @@ $(document).ready(function(){
 	********************************************/
 
 	// Handles
-    var handlesSlider = document.getElementById('slider-handles');
+	var handlesSlider = document.getElementById('slider-handles');
 
 	noUiSlider.create(handlesSlider, {
-		start: [ 4000, 8000 ],
+		start: [4000, 8000],
 		range: {
-			'min': [  2000 ],
-			'max': [ 10000 ]
+			'min': [2000],
+			'max': [10000]
 		}
 	});
 
@@ -172,7 +172,7 @@ $(document).ready(function(){
 		}
 	});
 
-	hoverSlider.noUiSlider.on('hover', function(value) {
+	hoverSlider.noUiSlider.on('hover', function (value) {
 		field.innerHTML = value;
 	});
 
@@ -205,7 +205,7 @@ $(document).ready(function(){
 
 	// Range
 	var pipsRange = document.getElementById('pips-range'),
-	pipsRangeRtl = document.getElementById('pips-range-rtl');
+		pipsRangeRtl = document.getElementById('pips-range-rtl');
 
 	noUiSlider.create(pipsRange, {
 		range: range_all_sliders,
@@ -339,7 +339,7 @@ $(document).ready(function(){
 	var defaultColorSlider = document.getElementById('default-color-slider');
 
 	noUiSlider.create(defaultColorSlider, {
-		start: [45,55],
+		start: [45, 55],
 		behaviour: 'drag',
 		connect: true,
 		range: {
@@ -353,7 +353,7 @@ $(document).ready(function(){
 	var successColorSlider = document.getElementById('success-color-slider');
 
 	noUiSlider.create(successColorSlider, {
-		start: [40,60],
+		start: [40, 60],
 		behaviour: 'drag',
 		connect: true,
 		range: {
@@ -367,7 +367,7 @@ $(document).ready(function(){
 	var infoColorSlider = document.getElementById('info-color-slider');
 
 	noUiSlider.create(infoColorSlider, {
-		start: [35,65],
+		start: [35, 65],
 		behaviour: 'drag',
 		connect: true,
 		range: {
@@ -381,7 +381,7 @@ $(document).ready(function(){
 	var warningColorSlider = document.getElementById('warning-color-slider');
 
 	noUiSlider.create(warningColorSlider, {
-		start: [45,55],
+		start: [45, 55],
 		behaviour: 'drag',
 		connect: true,
 		range: {
@@ -409,7 +409,7 @@ $(document).ready(function(){
 	var customColorSlider = document.getElementById('custom-color-slider');
 
 	noUiSlider.create(customColorSlider, {
-		start: [35,65],
+		start: [35, 65],
 		behaviour: 'drag',
 		connect: true,
 		range: {
@@ -425,7 +425,7 @@ $(document).ready(function(){
 
 	// Extra large options
 	var xl_options = {
-		start: [45,55],
+		start: [45, 55],
 		behaviour: 'drag',
 		connect: true,
 		range: {
@@ -435,7 +435,7 @@ $(document).ready(function(){
 	};
 
 	var lg_options = {
-		start: [40,60],
+		start: [40, 60],
 		behaviour: 'drag',
 		connect: true,
 		range: {
@@ -445,7 +445,7 @@ $(document).ready(function(){
 	};
 
 	var default_options = {
-		start: [35,65],
+		start: [35, 65],
 		behaviour: 'drag',
 		connect: true,
 		range: {
@@ -455,7 +455,7 @@ $(document).ready(function(){
 	};
 
 	var sm_options = {
-		start: [30,70],
+		start: [30, 70],
 		behaviour: 'drag',
 		connect: true,
 		range: {
@@ -465,7 +465,7 @@ $(document).ready(function(){
 	};
 
 	var xs_options = {
-		start: [25,75],
+		start: [25, 75],
 		behaviour: 'drag',
 		connect: true,
 		range: {
@@ -753,39 +753,39 @@ $(document).ready(function(){
 
 	noUiSlider.create(directionTopBottom1, {
 		range: range_all_sliders,
-        start: 30,
-        connect: 'lower',
-        orientation: 'vertical',
-        pips: {
-            mode: 'range',
-            density: 5
-        }
+		start: 30,
+		connect: 'lower',
+		orientation: 'vertical',
+		pips: {
+			mode: 'range',
+			density: 5
+		}
 	});
 
 	var directionTopBottom2 = document.getElementById('slider-direction-top-bottom-2');
 
 	noUiSlider.create(directionTopBottom2, {
 		range: range_all_sliders,
-        start: 50,
-        connect: 'lower',
-        orientation: 'vertical',
-        pips: {
-            mode: 'range',
-            density: 5
-        }
+		start: 50,
+		connect: 'lower',
+		orientation: 'vertical',
+		pips: {
+			mode: 'range',
+			density: 5
+		}
 	});
 
 	var directionTopBottom3 = document.getElementById('slider-direction-top-bottom-3');
 
 	noUiSlider.create(directionTopBottom3, {
 		range: range_all_sliders,
-        start: 70,
-        connect: 'lower',
-        orientation: 'vertical',
-        pips: {
-            mode: 'range',
-            density: 5
-        }
+		start: 70,
+		connect: 'lower',
+		orientation: 'vertical',
+		pips: {
+			mode: 'range',
+			density: 5
+		}
 	});
 
 
@@ -794,42 +794,42 @@ $(document).ready(function(){
 
 	noUiSlider.create(directionBottomTop1, {
 		range: range_all_sliders,
-        start: 70,
-        connect: 'lower',
-        orientation: 'vertical',
+		start: 70,
+		connect: 'lower',
+		orientation: 'vertical',
 		direction: 'rtl',
-        pips: {
-            mode: 'range',
-            density: 5
-        }
+		pips: {
+			mode: 'range',
+			density: 5
+		}
 	});
 
 	var directionBottomTop2 = document.getElementById('slider-direction-bottom-top-2');
 
 	noUiSlider.create(directionBottomTop2, {
 		range: range_all_sliders,
-        start: 50,
-        connect: 'lower',
-        orientation: 'vertical',
+		start: 50,
+		connect: 'lower',
+		orientation: 'vertical',
 		direction: 'rtl',
-        pips: {
-            mode: 'range',
-            density: 5
-        }
+		pips: {
+			mode: 'range',
+			density: 5
+		}
 	});
 
 	var directionBottomTop3 = document.getElementById('slider-direction-bottom-top-3');
 
 	noUiSlider.create(directionBottomTop3, {
 		range: range_all_sliders,
-        start: 30,
-        connect: 'lower',
-        orientation: 'vertical',
+		start: 30,
+		connect: 'lower',
+		orientation: 'vertical',
 		direction: 'rtl',
-        pips: {
-            mode: 'range',
-            density: 5
-        }
+		pips: {
+			mode: 'range',
+			density: 5
+		}
 	});
 
 
@@ -999,7 +999,7 @@ $(document).ready(function(){
 
 	// Extra large options
 	var vertical_xl_options = {
-		start: [45,55],
+		start: [45, 55],
 		behaviour: 'drag',
 		connect: true,
 		orientation: 'vertical',
@@ -1010,7 +1010,7 @@ $(document).ready(function(){
 	};
 
 	var vertical_lg_options = {
-		start: [40,60],
+		start: [40, 60],
 		behaviour: 'drag',
 		connect: true,
 		orientation: 'vertical',
@@ -1021,7 +1021,7 @@ $(document).ready(function(){
 	};
 
 	var vertical_default_options = {
-		start: [35,65],
+		start: [35, 65],
 		behaviour: 'drag',
 		connect: true,
 		orientation: 'vertical',
@@ -1032,7 +1032,7 @@ $(document).ready(function(){
 	};
 
 	var vertical_sm_options = {
-		start: [30,70],
+		start: [30, 70],
 		behaviour: 'drag',
 		connect: true,
 		orientation: 'vertical',
@@ -1043,7 +1043,7 @@ $(document).ready(function(){
 	};
 
 	var vertical_xs_options = {
-		start: [25,75],
+		start: [25, 75],
 		behaviour: 'drag',
 		connect: true,
 		orientation: 'vertical',

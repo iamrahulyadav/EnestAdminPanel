@@ -19,22 +19,22 @@ $(window).on("load", function () {
             [50, 45, 60, 55, 70, 55, 60, 55, 65, 57, 60, 53, 53]
         ]
     }, {
-            axisX: {
-                showGrid: true,
-                showLabel: false,
-                offset: 0,
-            },
-            axisY: {
-                showGrid: false,
-                low: 40,
-                showLabel: false,
-                offset: 0,
-            },
-            lineSmooth: Chartist.Interpolation.cardinal({
-                tension: 0
-            }),
-            fullWidth: true,
-        });
+        axisX: {
+            showGrid: true,
+            showLabel: false,
+            offset: 0,
+        },
+        axisY: {
+            showGrid: false,
+            low: 40,
+            showLabel: false,
+            offset: 0,
+        },
+        lineSmooth: Chartist.Interpolation.cardinal({
+            tension: 0
+        }),
+        fullWidth: true,
+    });
 
     // line chart widget 1 configuration Ends
 
@@ -45,22 +45,22 @@ $(window).on("load", function () {
             [50, 45, 60, 55, 70, 55, 60, 55, 65, 57, 60, 53, 53]
         ]
     }, {
-            axisX: {
-                showGrid: true,
-                showLabel: false,
-                offset: 0,
-            },
-            axisY: {
-                showGrid: false,
-                low: 40,
-                showLabel: false,
-                offset: 0,
-            },
-            lineSmooth: Chartist.Interpolation.cardinal({
-                tension: 0
-            }),
-            fullWidth: true,
-        });
+        axisX: {
+            showGrid: true,
+            showLabel: false,
+            offset: 0,
+        },
+        axisY: {
+            showGrid: false,
+            low: 40,
+            showLabel: false,
+            offset: 0,
+        },
+        lineSmooth: Chartist.Interpolation.cardinal({
+            tension: 0
+        }),
+        fullWidth: true,
+    });
 
     // line chart widget 2 configuration Ends
 
@@ -71,22 +71,22 @@ $(window).on("load", function () {
             [50, 45, 60, 55, 70, 55, 60, 55, 65, 57, 60, 53, 53]
         ]
     }, {
-            axisX: {
-                showGrid: true,
-                showLabel: false,
-                offset: 0,
-            },
-            axisY: {
-                showGrid: false,
-                low: 40,
-                showLabel: false,
-                offset: 0,
-            },
-            lineSmooth: Chartist.Interpolation.cardinal({
-                tension: 0
-            }),
-            fullWidth: true,
-        });
+        axisX: {
+            showGrid: true,
+            showLabel: false,
+            offset: 0,
+        },
+        axisY: {
+            showGrid: false,
+            low: 40,
+            showLabel: false,
+            offset: 0,
+        },
+        lineSmooth: Chartist.Interpolation.cardinal({
+            tension: 0
+        }),
+        fullWidth: true,
+    });
 
     // line chart widget 3 configuration Ends
 
@@ -97,22 +97,22 @@ $(window).on("load", function () {
             [50, 45, 60, 55, 70, 55, 60, 55, 65, 57, 60, 53, 53]
         ]
     }, {
-            axisX: {
-                showGrid: true,
-                showLabel: false,
-                offset: 0,
-            },
-            axisY: {
-                showGrid: false,
-                low: 40,
-                showLabel: false,
-                offset: 0,
-            },
-            lineSmooth: Chartist.Interpolation.cardinal({
-                tension: 0
-            }),
-            fullWidth: true,
-        });
+        axisX: {
+            showGrid: true,
+            showLabel: false,
+            offset: 0,
+        },
+        axisY: {
+            showGrid: false,
+            low: 40,
+            showLabel: false,
+            offset: 0,
+        },
+        lineSmooth: Chartist.Interpolation.cardinal({
+            tension: 0
+        }),
+        fullWidth: true,
+    });
 
     // line chart widget 4 configuration Ends
 
@@ -124,18 +124,18 @@ $(window).on("load", function () {
             [0, 5, 22, 14, 32, 12, 28, 0]
         ]
     }, {
+        low: 0,
+        showArea: true,
+        fullWidth: true,
+        onlyInteger: true,
+        axisY: {
             low: 0,
-            showArea: true,
-            fullWidth: true,
-            onlyInteger: true,
-            axisY: {
-                low: 0,
-                scaleMinSpace: 50,
-            },
-            axisX: {
-                showGrid: false
-            }
-        });
+            scaleMinSpace: 50,
+        },
+        axisX: {
+            showGrid: false
+        }
+    });
 
     lineArea.on('created', function (data) {
         var defs = data.svg.elem('defs');
@@ -177,18 +177,18 @@ $(window).on("load", function () {
             [2, 1, 5, 4, 3, 6]
         ]
     }, {
-            stackBars: true,
-            fullWidth: true,
-            axisX: {
-                showGrid: false,
-            },
-            axisY: {
-                showGrid: false,
-                showLabel: false,
-                offset: 0
-            },
-            chartPadding: 30
-        });
+        stackBars: true,
+        fullWidth: true,
+        axisX: {
+            showGrid: false,
+        },
+        axisY: {
+            showGrid: false,
+            showLabel: false,
+            offset: 0
+        },
+        chartPadding: 30
+    });
 
     Stackbarchart.on('created', function (data) {
         var defs = data.svg.elem('defs');
@@ -233,17 +233,17 @@ $(window).on("load", function () {
             [80, 95, 87, 155, 140, 147, 130, 180, 160, 175, 165, 200]
         ]
     }, {
-            showArea: true,
-            fullWidth: true,
-            lineSmooth: Chartist.Interpolation.none(),
-            axisX: {
-                showGrid: false,
-            },
-            axisY: {
-                low: 0,
-                scaleMinSpace: 50,
-            }
+        showArea: true,
+        fullWidth: true,
+        lineSmooth: Chartist.Interpolation.none(),
+        axisX: {
+            showGrid: false,
         },
+        axisY: {
+            low: 0,
+            scaleMinSpace: 50,
+        }
+    },
         [
             ['screen and (max-width: 640px) and (min-width: 381px)', {
                 axisX: {
@@ -323,19 +323,19 @@ $(window).on("load", function () {
             [80, 85, 75, 65, 63, 70, 82]
         ]
     }, {
-            axisX: {
-                showGrid: false
-            },
-            axisY: {
-                showGrid: false,
-                showLabel: false,
-                low: 0,
-                high: 100,
-                offset: 0,
-            },
-            fullWidth: true,
+        axisX: {
+            showGrid: false
+        },
+        axisY: {
+            showGrid: false,
+            showLabel: false,
+            low: 0,
+            high: 100,
             offset: 0,
-        });
+        },
+        fullWidth: true,
+        offset: 0,
+    });
 
     lineChart.on('created', function (data) {
         var circleRadius = 4;
@@ -364,17 +364,17 @@ $(window).on("load", function () {
         series: [[53, 23, 40, 30]]
 
     }, {
-            axisX: {
-                showGrid: false,
-            },
-            axisY: {
-                showGrid: false,
-                showLabel: false,
-                offset: 0
-            },
-            low: 0,
-            high: 60
+        axisX: {
+            showGrid: false,
         },
+        axisY: {
+            showGrid: false,
+            showLabel: false,
+            offset: 0
+        },
+        low: 0,
+        high: 60
+    },
         [
             ['screen and (max-width: 640px)', {
                 seriesBarDistance: 5,
@@ -508,15 +508,15 @@ $(window).on("load", function () {
             }
         ]
     }, {
-            donut: true,
-            startAngle: 0,
-            labelInterpolationFnc: function (value) {
-                var total = Donutdata.series.reduce(function (prev, series) {
-                    return prev + series.value;
-                }, 0);
-                return total + '%';
-            }
-        });
+        donut: true,
+        startAngle: 0,
+        labelInterpolationFnc: function (value) {
+            var total = Donutdata.series.reduce(function (prev, series) {
+                return prev + series.value;
+            }, 0);
+            return total + '%';
+        }
+    });
 
     donut.on('draw', function (data) {
         if (data.type === 'label') {

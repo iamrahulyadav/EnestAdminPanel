@@ -20,18 +20,18 @@ $(window).on("load", function () {
             [0, 10, 30, 10, 30, 15, 30, 15, 30, 0]
         ]
     }, {
+        low: 0,
+        showArea: true,
+        fullWidth: true,
+        onlyInteger: true,
+        axisY: {
             low: 0,
-            showArea: true,
-            fullWidth: true,
-            onlyInteger: true,
-            axisY: {
-                low: 0,
-                scaleMinSpace: 50,
-            },
-            axisX: {
-                showGrid: false
-            }
-        });
+            scaleMinSpace: 50,
+        },
+        axisX: {
+            showGrid: false
+        }
+    });
 
     lineArea1.on('created', function (data) {
         var defs = data.svg.elem('defs');
@@ -59,18 +59,18 @@ $(window).on("load", function () {
             [80, 95, 87, 155, 140, 147, 130, 180, 160, 175, 165, 200]
         ]
     }, {
-            showArea: true,
-            fullWidth: true,
-            lineSmooth: Chartist.Interpolation.none(),
-            axisX: {
-                showGrid: false,
-            },
-            axisY: {
-                low: 0,
-                scaleMinSpace: 50,
-            },
-            chartPadding: { top: 0, right: 25, bottom: 0, left: 0 },
+        showArea: true,
+        fullWidth: true,
+        lineSmooth: Chartist.Interpolation.none(),
+        axisX: {
+            showGrid: false,
         },
+        axisY: {
+            low: 0,
+            scaleMinSpace: 50,
+        },
+        chartPadding: { top: 0, right: 25, bottom: 0, left: 0 },
+    },
         [
             ['screen and (max-width: 640px) and (min-width: 381px)', {
                 axisX: {
@@ -140,15 +140,15 @@ $(window).on("load", function () {
             [0, 3, 5, 2, 8, 1, 5, 0]
         ]
     }, {
+        low: 0,
+        showArea: true,
+        fullWidth: true,
+        onlyInteger: true,
+        axisY: {
             low: 0,
-            showArea: true,
-            fullWidth: true,
-            onlyInteger: true,
-            axisY: {
-                low: 0,
-                scaleMinSpace: 50,
-            }
-        });
+            scaleMinSpace: 50,
+        }
+    });
 
     lineArea3.on('created', function (data) {
         var defs = data.svg.elem('defs');
@@ -187,10 +187,10 @@ $(window).on("load", function () {
             [5, 9, 7, 8, 5, 3, 5, 4]
         ]
     }, {
-            low: 0,
-            showArea: true,
-            fullWidth: true,
-        });
+        low: 0,
+        showArea: true,
+        fullWidth: true,
+    });
     // Line with Area Chart 4 Ends
 
     // Line Chart 1 Starts
@@ -202,16 +202,16 @@ $(window).on("load", function () {
             [175, 190, 160, 190, 140, 100]
         ]
     }, {
-            axisX: {
-                showGrid: false,
-            },
-            axisY: {
-                low: 0,
-                scaleMinSpace: 50,
-            },
-            fullWidth: true,
-            chartPadding: { top: 0, right: 25, bottom: 0, left: 0 }
-        });
+        axisX: {
+            showGrid: false,
+        },
+        axisY: {
+            low: 0,
+            scaleMinSpace: 50,
+        },
+        fullWidth: true,
+        chartPadding: { top: 0, right: 25, bottom: 0, left: 0 }
+    });
     // Line Chart 1 Ends
 
     // Line Chart 2 Starts
@@ -222,16 +222,16 @@ $(window).on("load", function () {
             [100, 95, 90, 100, 110, 120, 130, 140, 130, 95, 75, 80]
         ]
     }, {
-            axisX: {
-                showGrid: false,
-            },
-            axisY: {
-                low: 0,
-                scaleMinSpace: 50,
-            },
-            fullWidth: true,
-            chartPadding: { top: 0, right: 25, bottom: 0, left: 0 },
+        axisX: {
+            showGrid: false,
         },
+        axisY: {
+            low: 0,
+            scaleMinSpace: 50,
+        },
+        fullWidth: true,
+        chartPadding: { top: 0, right: 25, bottom: 0, left: 0 },
+    },
         [
             ['screen and (max-width: 640px) and (min-width: 381px)', {
                 axisX: {
@@ -272,11 +272,11 @@ $(window).on("load", function () {
             [1, 10, 2, 10, 6, 2, 8]
         ]
     }, {
-            axisX: { showGrid: false }, axisY: {
-                scaleMinSpace: 30,
-            }, fullWidth: true,
-            chartPadding: { top: 0, right: 50, bottom: 0, left: 0 },
-        },
+        axisX: { showGrid: false }, axisY: {
+            scaleMinSpace: 30,
+        }, fullWidth: true,
+        chartPadding: { top: 0, right: 50, bottom: 0, left: 0 },
+    },
         [
             ['screen and (max-width: 640px) and (min-width: 381px)', {
                 axisX: {

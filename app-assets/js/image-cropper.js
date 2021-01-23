@@ -9,7 +9,7 @@
 ==========================================================================================*/
 
 
-$(document).ready(function(){
+$(document).ready(function () {
 
     /********************************
     *           Crop Demo           *
@@ -27,7 +27,7 @@ $(document).ready(function(){
         viewMode: 1,
         aspectRatio: 16 / 9,
         preview: '.img-preview',
-        crop: function(e) {
+        crop: function (e) {
             $dataX.val(Math.round(e.x));
             $dataY.val(Math.round(e.y));
             $dataHeight.val(Math.round(e.height));
@@ -42,71 +42,71 @@ $(document).ready(function(){
     $image.cropper(options);
 
     // Get Data
-    $('.get-data-btn').on('click',function(){
+    $('.get-data-btn').on('click', function () {
         result = $image.cropper("getData");
         $('.get-data').val(JSON.stringify(result));
     });
 
     // Get Image Data
-    $('.get-image-data-btn').on('click',function(){
+    $('.get-image-data-btn').on('click', function () {
         result = $image.cropper("getImageData");
         $('.get-image-data').val(JSON.stringify(result));
     });
 
     // Get Container Data
-    $('.get-container-data-btn').on('click',function(){
+    $('.get-container-data-btn').on('click', function () {
         result = $image.cropper("getContainerData");
         $('.get-container-data').val(JSON.stringify(result));
     });
 
     // Get Canvas Data
-    $('.get-canvas-data-btn').on('click',function(){
+    $('.get-canvas-data-btn').on('click', function () {
         result = $image.cropper("getCanvasData");
         $('.get-canvas-data').val(JSON.stringify(result));
     });
 
     // Get Cropbox Data
-    $('.get-cropbox-data-btn').on('click',function(){
+    $('.get-cropbox-data-btn').on('click', function () {
         result = $image.cropper("getCropBoxData");
         $('.get-cropbox-data').val(JSON.stringify(result));
     });
 
     // Download Cropped Canvas
-    $('.download-cropped-canvas-btn').on('click',function(){
+    $('.download-cropped-canvas-btn').on('click', function () {
 
     });
 
     // Rotate Image -45 Degree
-    $('.rotate-m45-deg').on('click',function(){
+    $('.rotate-m45-deg').on('click', function () {
         $image.cropper('rotate', -45);
     });
 
     // Rotate Image 45 Degree
-    $('.rotate-45-deg').on('click',function(){
+    $('.rotate-45-deg').on('click', function () {
         $image.cropper('rotate', 45);
     });
 
     // Rotate Image 180 Degree
-    $('.rotate-180-deg').on('click',function(){
+    $('.rotate-180-deg').on('click', function () {
         $image.cropper('rotate', 180);
     });
 
     // Flip Horizontal
-    $('.flip-horizontal').on('click',function(){
+    $('.flip-horizontal').on('click', function () {
         var dataOption = $(this).data('option');
         $image.cropper('scaleX', -dataOption);
         $(this).data('option', -dataOption);
     });
 
     // Flip Vertical
-    $('.flip-vertical').on('click',function(){
+    $('.flip-vertical').on('click', function () {
         var dataOption = $(this).data('option');
         $image.cropper('scaleY', -dataOption);
         $(this).data('option', -dataOption);
     });
 
     // Zoom In
-    $('.zoom-in').on('click',function(){
+    $('.zoom-in').on('click', function () {
         $image.cropper('zoom', 0.1);
     });
 
@@ -136,7 +136,7 @@ $(document).ready(function(){
     ****************************************/
     $('.aspect-ratio-16-9').cropper({
         viewMode: 1,
-        aspectRatio: 16/9,
+        aspectRatio: 16 / 9,
         autoCropArea: 0.65,
         restore: false,
         zoomOnWheel: false
@@ -148,7 +148,7 @@ $(document).ready(function(){
     ***************************************/
     $('.aspect-ratio-4-3').cropper({
         viewMode: 1,
-        aspectRatio: 4/3,
+        aspectRatio: 4 / 3,
         autoCropArea: 0.65,
         restore: false,
         zoomOnWheel: false

@@ -6,16 +6,16 @@ namespace Composer\Autoload;
 
 class ComposerStaticInit9268a2fe940ea1492dafa8be742c1bdc
 {
-    public static $prefixLengthsPsr4 = array (
-        'S' => 
-        array (
+    public static $prefixLengthsPsr4 = array(
+        'S' =>
+        array(
             'SendGrid\\' => 9,
         ),
     );
 
-    public static $prefixDirsPsr4 = array (
-        'SendGrid\\' => 
-        array (
+    public static $prefixDirsPsr4 = array(
+        'SendGrid\\' =>
+        array(
             0 => __DIR__ . '/..' . '/sendgrid/php-http-client/lib',
         ),
     );
@@ -25,7 +25,6 @@ class ComposerStaticInit9268a2fe940ea1492dafa8be742c1bdc
         return \Closure::bind(function () use ($loader) {
             $loader->prefixLengthsPsr4 = ComposerStaticInit9268a2fe940ea1492dafa8be742c1bdc::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInit9268a2fe940ea1492dafa8be742c1bdc::$prefixDirsPsr4;
-
         }, null, ClassLoader::class);
     }
 }

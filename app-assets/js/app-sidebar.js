@@ -15,8 +15,7 @@ $(document).ready(function () {
     var position;
     if ($('.navigation-main').find('li.active').parents('li').length > 0) {
       position = $(".navigation-main").find('li.active').parents('li').last().position();
-    }
-    else {
+    } else {
       position = $(".navigation-main").find('li.active').position();
     }
     setTimeout(function () {

@@ -11,8 +11,8 @@
 Dropzone.options.dpzSingleFile = {
     paramName: "file", // The name that will be used to transfer the file
     maxFiles: 1,
-    init: function() {
-        this.on("maxfilesexceeded", function(file) {
+    init: function () {
+        this.on("maxfilesexceeded", function (file) {
             this.removeAllFiles();
             this.addFile(file);
         });
@@ -76,13 +76,13 @@ Dropzone.options.dpzRemoveThumb = {
 Dropzone.options.dpzRemoveAllThumb = {
     paramName: "file", // The name that will be used to transfer the file
     maxFilesize: 1, // MB
-    init: function() {
+    init: function () {
 
         // Using a closure.
         var _this = this;
 
         // Setup the observer for the button.
-        $("#clear-dropzone").on("click", function() {
+        $("#clear-dropzone").on("click", function () {
             // Using "_this" here, because "this" doesn't point to the dropzone anymore
             _this.removeAllFiles();
             // If you want to cancel uploads as well, you

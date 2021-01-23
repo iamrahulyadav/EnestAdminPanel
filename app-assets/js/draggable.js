@@ -9,21 +9,21 @@
 ==========================================================================================*/
 
 
-$(document).ready(function(){
+$(document).ready(function () {
 	// Draggable Cards
 	dragula([document.getElementById('card-drag-area')]);
 
 	// Change Card color if moved
 	dragula([document.getElementById('card-move')])
-	.on('drag', function (el) {
-		el.className = el.className.replace('card-moved', '');
-	}).on('drop', function (el) {
-		el.className += ' card-moved';
-	}).on('over', function (el, container) {
-		container.className += ' card-over';
-	}).on('out', function (el, container) {
-		container.className = container.className.replace('card-over', '');
-	});
+		.on('drag', function (el) {
+			el.className = el.className.replace('card-moved', '');
+		}).on('drop', function (el) {
+			el.className += ' card-moved';
+		}).on('over', function (el, container) {
+			container.className += ' card-over';
+		}).on('out', function (el, container) {
+			container.className = container.className.replace('card-over', '');
+		});
 
 	// Copy Cards
 	dragula([document.getElementById("copy-left"), document.getElementById("copy-right")], {
@@ -44,4 +44,4 @@ $(document).ready(function(){
 		}
 	});
 
- });
+});

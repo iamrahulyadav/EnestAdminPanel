@@ -8,11 +8,11 @@
 	Author: Pixinvent
 	Author URL: hhttp://www.themeforest.net/user/pixinvent
 ==========================================================================================*/
-	(function(window, document, $) {
+(function (window, document, $) {
 	'use strict';
 
 	$(function () {
-	  $('[data-toggle="tooltip"]').tooltip()
+		$('[data-toggle="tooltip"]').tooltip()
 	})
 
 	/******************/
@@ -24,8 +24,8 @@
 		title: 'Tooltip Show Event',
 		trigger: 'click',
 		placement: 'right'
-		}).on('show.bs.tooltip', function() {
-			alert('Show event fired.');
+	}).on('show.bs.tooltip', function () {
+		alert('Show event fired.');
 	});
 
 	// onShown event
@@ -33,7 +33,7 @@
 		title: 'Tooltip Shown Event',
 		trigger: 'click',
 		placement: 'top'
-	}).on('shown.bs.tooltip', function() {
+	}).on('shown.bs.tooltip', function () {
 		alert('Shown event fired.');
 	});
 
@@ -42,7 +42,7 @@
 		title: 'Tooltip Hide Event',
 		trigger: 'click',
 		placement: 'bottom'
-	}).on('hide.bs.tooltip', function() {
+	}).on('hide.bs.tooltip', function () {
 		alert('Hide event fired.');
 	});
 
@@ -51,7 +51,7 @@
 		title: 'Tooltip Hidden Event',
 		trigger: 'click',
 		placement: 'left'
-	}).on('hidden.bs.tooltip', function() {
+	}).on('hidden.bs.tooltip', function () {
 		alert('Hidden event fired.');
 	});
 
@@ -61,35 +61,35 @@
 	/*******************/
 
 	// Show method
-	$('#show-method').on('click', function() {
+	$('#show-method').on('click', function () {
 		$(this).tooltip('show');
 	});
 	// Hide method
-	$('#hide-method').on('mouseenter', function() {
+	$('#hide-method').on('mouseenter', function () {
 		$(this).tooltip('show');
 	});
-	$('#hide-method').on('click', function() {
+	$('#hide-method').on('click', function () {
 		$(this).tooltip('hide');
 	});
 	// Toggle method
-	$('#toggle-method').on('click', function() {
+	$('#toggle-method').on('click', function () {
 		$(this).tooltip('toggle');
 	});
 	// Dispose method
-	$('#dispose').on('click', function() {
+	$('#dispose').on('click', function () {
 		$('#dispose-method').tooltip('dispose');
 	});
 
 	/* Trigger*/
-	$('.manual').on('click', function() {
+	$('.manual').on('click', function () {
 		$(this).tooltip('show');
 	});
-	$('.manual').on('mouseout', function() {
+	$('.manual').on('mouseout', function () {
 		$(this).tooltip('hide');
 	});
 
 	/* Default template */
-	$(".template").on('click', function(){
+	$(".template").on('click', function () {
 		console.log(
 			'<div class="tooltip" role="tooltip">' +
 			'<div class="tooltip-arrow"></div>' +

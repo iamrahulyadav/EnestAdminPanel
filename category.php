@@ -203,7 +203,7 @@ function resizeImage($resourceType, $image_width, $image_height, $resizeWidth, $
                           $fileName = $_FILES['f_up']['tmp_name'];
                           $sourceProperties = getimagesize($fileName);
                           $resizeFileName = time();
-                          $uploadPath = "product/";
+                          $uploadPath = "cat/";
                           $fileExt = pathinfo($_FILES['f_up']['name'], PATHINFO_EXTENSION);
                           $uploadImageType = $sourceProperties[2];
                           $sourceImageWidth = $sourceProperties[0];

@@ -8,7 +8,7 @@
 	Author URL: http://www.themeforest.net/user/pixinvent
 ==========================================================================================*/
 
-(function(window, document, $) {
+(function (window, document, $) {
 	'use strict';
 
 	// Input, Select, Textarea validations except submit button

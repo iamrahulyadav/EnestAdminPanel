@@ -95,15 +95,15 @@ $(document).ready(function () {
 			title: '<i>HTML</i> <u>example</u>',
 			type: 'info',
 			html:
-			'You can use <b>bold text</b>, ' +
-			'<a href="//github.com">links</a> ' +
-			'and other HTML tags',
+				'You can use <b>bold text</b>, ' +
+				'<a href="//github.com">links</a> ' +
+				'and other HTML tags',
 			showCloseButton: true,
 			showCancelButton: true,
 			confirmButtonText:
-			'<i class="fa fa-thumbs-up"></i> Great!',
+				'<i class="fa fa-thumbs-up"></i> Great!',
 			cancelButtonText:
-			'<i class="fa fa-thumbs-down"></i> Opps!'
+				'<i class="fa fa-thumbs-down"></i> Opps!'
 		})
 	});
 

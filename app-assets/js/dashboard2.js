@@ -19,19 +19,19 @@ $(window).on("load", function () {
             [55, 60, 50, 55, 50, 60, 55, 57]
         ]
     }, {
-            axisX: {
-                showGrid: false,
-                showLabel: false,
-                offset: 0,
-            },
-            axisY: {
-                showGrid: false,
-                low: 50,
-                showLabel: false,
-                offset: 0,
-            },
-            fullWidth: true
-        });
+        axisX: {
+            showGrid: false,
+            showLabel: false,
+            offset: 0,
+        },
+        axisY: {
+            showGrid: false,
+            low: 50,
+            showLabel: false,
+            offset: 0,
+        },
+        fullWidth: true
+    });
 
     // line chart widget 1 configuration Ends
 
@@ -42,19 +42,19 @@ $(window).on("load", function () {
             [55, 60, 50, 55, 50, 60, 55, 57]
         ]
     }, {
-            axisX: {
-                showGrid: false,
-                showLabel: false,
-                offset: 0,
-            },
-            axisY: {
-                showGrid: false,
-                low: 50,
-                showLabel: false,
-                offset: 0,
-            },
-            fullWidth: true
-        });
+        axisX: {
+            showGrid: false,
+            showLabel: false,
+            offset: 0,
+        },
+        axisY: {
+            showGrid: false,
+            low: 50,
+            showLabel: false,
+            offset: 0,
+        },
+        fullWidth: true
+    });
 
     // line chart widget 2 configuration Ends
 
@@ -65,19 +65,19 @@ $(window).on("load", function () {
             [55, 60, 50, 55, 50, 60, 55, 57]
         ]
     }, {
-            axisX: {
-                showGrid: false,
-                showLabel: false,
-                offset: 0,
-            },
-            axisY: {
-                showGrid: false,
-                low: 50,
-                showLabel: false,
-                offset: 0,
-            },
-            fullWidth: true
-        });
+        axisX: {
+            showGrid: false,
+            showLabel: false,
+            offset: 0,
+        },
+        axisY: {
+            showGrid: false,
+            low: 50,
+            showLabel: false,
+            offset: 0,
+        },
+        fullWidth: true
+    });
 
     // line chart widget 3 configuration Ends
 
@@ -88,19 +88,19 @@ $(window).on("load", function () {
             [55, 60, 50, 55, 50, 60, 55, 57]
         ]
     }, {
-            axisX: {
-                showGrid: false,
-                showLabel: false,
-                offset: 0,
-            },
-            axisY: {
-                showGrid: false,
-                low: 50,
-                showLabel: false,
-                offset: 0,
-            },
-            fullWidth: true
-        });
+        axisX: {
+            showGrid: false,
+            showLabel: false,
+            offset: 0,
+        },
+        axisY: {
+            showGrid: false,
+            low: 50,
+            showLabel: false,
+            offset: 0,
+        },
+        fullWidth: true
+    });
 
     // line chart widget 4 configuration Ends
 
@@ -113,22 +113,22 @@ $(window).on("load", function () {
             [175, 190, 160, 190, 140, 100]
         ]
     }, {
-            axisX: {
-                showGrid: false,
-            },
-            axisY: {
-                low: 0,
-                scaleMinSpace: 50,
-            },
-            fullWidth: true,
-            chartPadding: { top: 0, right: 25, bottom: 0, left: 0 }
-        });
+        axisX: {
+            showGrid: false,
+        },
+        axisY: {
+            low: 0,
+            scaleMinSpace: 50,
+        },
+        fullWidth: true,
+        chartPadding: { top: 0, right: 25, bottom: 0, left: 0 }
+    });
     // Line Chart 1 Ends
 
 
     // Donut Chart 1 Starts
     var donutChart1 = new Chartist.Pie('#donut-chart1', {
-        series: 
+        series:
             [
                 {
                     name: 'done',
@@ -141,18 +141,18 @@ $(window).on("load", function () {
                     value: 3
                 }
             ]
-        
+
         // series: [10, 3]
     }, {
-            donut: true,
-            donutWidth: 3,
-            startAngle: 0,
-            chartPadding: 25,
-            total: 13,
-            labelInterpolationFnc: function (value) {
-                return '\ue9c9';
-            }
-        });
+        donut: true,
+        donutWidth: 3,
+        startAngle: 0,
+        chartPadding: 25,
+        total: 13,
+        labelInterpolationFnc: function (value) {
+            return '\ue9c9';
+        }
+    });
 
     donutChart1.on('draw', function (data) {
         if (data.type === 'label') {
@@ -172,7 +172,7 @@ $(window).on("load", function () {
 
     // Donut Chart 2 Starts
     var donutChart2 = new Chartist.Pie('#donut-chart2', {
-        series: 
+        series:
             [
                 {
                     "name": "done",
@@ -185,16 +185,16 @@ $(window).on("load", function () {
                     "value": 3
                 }
             ]
-        
+
     }, {
-            donut: true,
-            donutWidth: 3,
-            startAngle: 90,
-            chartPadding: 25,
-            labelInterpolationFnc: function (value) {
-                return '\ue9e7';
-            }
-        });
+        donut: true,
+        donutWidth: 3,
+        startAngle: 90,
+        chartPadding: 25,
+        labelInterpolationFnc: function (value) {
+            return '\ue9e7';
+        }
+    });
 
     donutChart2.on('draw', function (data) {
         if (data.type === 'label') {
@@ -214,7 +214,7 @@ $(window).on("load", function () {
 
     // Donut Chart 3 Starts
     var donutChart3 = new Chartist.Pie('#donut-chart3', {
-        series: 
+        series:
             [
                 {
                     "name": "done",
@@ -227,16 +227,16 @@ $(window).on("load", function () {
                     "value": 3
                 }
             ]
-        
+
     }, {
-            donut: true,
-            donutWidth: 3,
-            startAngle: 270,
-            chartPadding: 25,
-            labelInterpolationFnc: function (value) {
-                return '\ue964';
-            }
-        });
+        donut: true,
+        donutWidth: 3,
+        startAngle: 270,
+        chartPadding: 25,
+        labelInterpolationFnc: function (value) {
+            return '\ue964';
+        }
+    });
 
     donutChart3.on('draw', function (data) {
         if (data.type === 'label') {
@@ -262,16 +262,16 @@ $(window).on("load", function () {
             [100, 95, 90, 100, 110, 120, 130, 140, 130, 95, 75, 80]
         ]
     }, {
-            axisX: {
-                showGrid: false,
-            },
-            axisY: {
-                low: 0,
-                scaleMinSpace: 50,
-            },
-            fullWidth: true,
-            chartPadding: { top: 0, right: 25, bottom: 0, left: 0 },
+        axisX: {
+            showGrid: false,
         },
+        axisY: {
+            low: 0,
+            scaleMinSpace: 50,
+        },
+        fullWidth: true,
+        chartPadding: { top: 0, right: 25, bottom: 0, left: 0 },
+    },
         [
             ['screen and (max-width: 640px) and (min-width: 381px)', {
                 axisX: {
@@ -310,20 +310,20 @@ $(window).on("load", function () {
             [50, 70, 45, 75, 85]
         ]
     }, {
-            axisX: {
-                showGrid: false,
-                showLabel: false,
-                offset: 0,
-            },
-            axisY: {
-                showGrid: false,
-                low: 50,
-                showLabel: false,
-                offset: 0,
-            },
-            fullWidth: true,
-            chartPadding: { top: 0, right: 0, bottom: 10, left: 0 }
-        });
+        axisX: {
+            showGrid: false,
+            showLabel: false,
+            offset: 0,
+        },
+        axisY: {
+            showGrid: false,
+            low: 50,
+            showLabel: false,
+            offset: 0,
+        },
+        fullWidth: true,
+        chartPadding: { top: 0, right: 0, bottom: 10, left: 0 }
+    });
 
     WidgetLineChart1.on('created', function (data) {
         var defs = data.svg.elem('defs');
@@ -350,22 +350,22 @@ $(window).on("load", function () {
             [50, 45, 60, 55, 70, 55, 60, 55, 65, 57, 60, 53, 53]
         ]
     }, {
-            axisX: {
-                showGrid: true,
-                showLabel: false,
-                offset: 0,
-            },
-            axisY: {
-                showGrid: false,
-                low: 40,
-                showLabel: false,
-                offset: 0,
-            },
-            lineSmooth: Chartist.Interpolation.cardinal({
-                tension: 0
-            }),
-            fullWidth: true
-        });
+        axisX: {
+            showGrid: true,
+            showLabel: false,
+            offset: 0,
+        },
+        axisY: {
+            showGrid: false,
+            low: 40,
+            showLabel: false,
+            offset: 0,
+        },
+        lineSmooth: Chartist.Interpolation.cardinal({
+            tension: 0
+        }),
+        fullWidth: true
+    });
 
     WidgetLineChart22.on('created', function (data) {
         var defs = data.svg.elem('defs');
@@ -393,18 +393,18 @@ $(window).on("load", function () {
             [0, 3, 5, 2, 8, 1, 5, 0]
         ]
     }, {
+        low: 0,
+        showArea: true,
+        fullWidth: true,
+        onlyInteger: true,
+        axisY: {
             low: 0,
-            showArea: true,
-            fullWidth: true,
-            onlyInteger: true,
-            axisY: {
-                low: 0,
-                scaleMinSpace: 50,
-            },
-            axisX: {
-                showGrid: false
-            }
-        });
+            scaleMinSpace: 50,
+        },
+        axisX: {
+            showGrid: false
+        }
+    });
 
     lineArea3.on('created', function (data) {
         var defs = data.svg.elem('defs');

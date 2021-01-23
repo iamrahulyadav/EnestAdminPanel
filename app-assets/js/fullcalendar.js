@@ -1,15 +1,15 @@
 /*=========================================================================================
-    File Name: fullcalendar.js
-    Description: Fullcalendar
-    --------------------------------------------------------------------------------------
-    Item Name: Apex - Responsive Admin Theme
-    Version: 1.0
-    Author: PIXINVENT
-    Author URL: http://www.themeforest.net/user/pixinvent
+	File Name: fullcalendar.js
+	Description: Fullcalendar
+	--------------------------------------------------------------------------------------
+	Item Name: Apex - Responsive Admin Theme
+	Version: 1.0
+	Author: PIXINVENT
+	Author URL: http://www.themeforest.net/user/pixinvent
 ==========================================================================================*/
 
 
-$(document).ready(function(){
+$(document).ready(function () {
 
 	/************************************
 	*				Default				*
@@ -449,7 +449,7 @@ $(document).ready(function(){
 				color: '#3BAFDA'
 			}
 		],
-		drop: function() {
+		drop: function () {
 			// is the "remove after drop" checkbox checked?
 			if ($('#drop-remove').is(':checked')) {
 				// if so, remove the element from the "Draggable Events" list
@@ -461,10 +461,10 @@ $(document).ready(function(){
 	/* initialize the external events
 	-----------------------------------------------------------------*/
 
-	$('#external-events .fc-event').each(function() {
+	$('#external-events .fc-event').each(function () {
 
 		// Different colors for events
-        $(this).css({'backgroundColor': $(this).data('color'), 'borderColor': $(this).data('color')});
+		$(this).css({ 'backgroundColor': $(this).data('color'), 'borderColor': $(this).data('color') });
 
 		// store data so the calendar knows to render an event upon drop
 		$(this).data('event', {
@@ -495,7 +495,7 @@ $(document).ready(function(){
 		defaultDate: '2016-06-12',
 		selectable: true,
 		selectHelper: true,
-		select: function(start, end) {
+		select: function (start, end) {
 			var title = prompt('Event Title:');
 			var eventData;
 			if (title) {
@@ -583,13 +583,13 @@ $(document).ready(function(){
 		events: 'en.indian#holiday@group.v.calendar.google.com',
 
 
-		eventClick: function(event) {
+		eventClick: function (event) {
 			// opens events in a popup window
 			window.open(event.url, 'gcalevent', 'width=700,height=600');
 			return false;
 		},
 
-		loading: function(bool) {
+		loading: function (bool) {
 			$('#loading').toggle(bool);
 		}
 
@@ -610,11 +610,11 @@ $(document).ready(function(){
 		eventLimit: true, // allow "more" link when too many events
 		events: {
 			url: '../../../app-assets/data/fullcalendar/php/get-events.php',
-			error: function() {
+			error: function () {
 				$('#script-warning').show();
 			}
 		},
-		loading: function(bool) {
+		loading: function (bool) {
 			$('#loading').toggle(bool);
 		}
 	});
@@ -697,7 +697,7 @@ $(document).ready(function(){
 	});
 
 	// build the language selector's options
-	$.each($.fullCalendar.langs, function(langCode) {
+	$.each($.fullCalendar.langs, function (langCode) {
 		$('#lang-selector').append(
 			$('<option/>')
 				.attr('value', langCode)
@@ -707,7 +707,7 @@ $(document).ready(function(){
 	});
 
 	// when the selected option changes, dynamically change the calendar option
-	$('#lang-selector').on('change', function() {
+	$('#lang-selector').on('change', function () {
 		if (this.value) {
 			$('#fc-languages').fullCalendar('option', 'lang', this.value);
 		}
@@ -729,14 +729,14 @@ $(document).ready(function(){
 		eventLimit: true, // allow "more" link when too many events
 		events: {
 			url: '../../../app-assets/data/fullcalendar/php/get-events.php',
-			error: function() {
+			error: function () {
 				$('#script-warning').show();
 			}
 		},
-		loading: function(bool) {
+		loading: function (bool) {
 			$('#loading').toggle(bool);
 		},
-		eventRender: function(event, el) {
+		eventRender: function (event, el) {
 			// render the timezone offset below the event title
 			if (event.start.hasZone()) {
 				el.find('.fc-title').after(
@@ -744,17 +744,17 @@ $(document).ready(function(){
 				);
 			}
 		},
-		dayClick: function(date) {
+		dayClick: function (date) {
 			console.log('dayClick', date.format());
 		},
-		select: function(startDate, endDate) {
+		select: function (startDate, endDate) {
 			console.log('select', startDate.format(), endDate.format());
 		}
 	});
 
 	// load the list of available timezones, build the <select> options
-	$.getJSON('../../../app-assets/data/fullcalendar/php/get-timezones.php', function(timezones) {
-		$.each(timezones, function(i, timezone) {
+	$.getJSON('../../../app-assets/data/fullcalendar/php/get-timezones.php', function (timezones) {
+		$.each(timezones, function (i, timezone) {
 			if (timezone != 'UTC') { // UTC is already in the list
 				$('#timezone-selector').append(
 					$("<option/>").text(timezone).attr('value', timezone)
@@ -764,7 +764,7 @@ $(document).ready(function(){
 	});
 
 	// when the timezone selector changes, dynamically change the calendar option
-	$('#timezone-selector').on('change', function() {
+	$('#timezone-selector').on('change', function () {
 		$('#fc-timezones').fullCalendar('option', 'timezone', this.value || false);
 	});
 });
