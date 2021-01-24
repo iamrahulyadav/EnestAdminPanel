@@ -5,6 +5,7 @@ require dirname(dirname(__FILE__)) . '/app-assets/vendors/autoload.php';
 $getkey = $con->query("select * from setting")->fetch_assoc();
 define('API_KEY', $getkey['sendgrid_key']);
 define('API_EMAIL', $getkey['sendgrid_email']);
+define('CALL', $getkey['callsupport']);
 
 $data = json_decode(file_get_contents('php://input'), true);
 if ($data['uid'] == '' or $data['oid'] == '') {
@@ -108,7 +109,7 @@ if ($data['uid'] == '' or $data['oid'] == '') {
                               <td align=\"left\" style=\"padding:0;Margin:0\"> 
                                <table width=\"100%\" cellspacing=\"0\" cellpadding=\"0\" role=\"presentation\" style=\"mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px\"> 
                                  <tr style=\"border-collapse:collapse\"> 
-                                  <td align=\"left\" style=\"padding:0;Margin:0;padding-top:20px\"><p style=\"Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;color:#333333\"><a href=\"tel:+917602630763\" style=\"-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;font-size:14px;text-decoration:underline;color:#1376C8\">+917602630763</a></p></td> 
+                                  <td align=\"left\" style=\"padding:0;Margin:0;padding-top:20px\"><p style=\"Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;color:#333333\"><a href=\"tel:" . CALL . "\" style=\"-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;font-size:14px;text-decoration:underline;color:#1376C8\">" . CALL . "</a></p></td> 
                                  </tr> 
                                </table></td> 
                              </tr> 
