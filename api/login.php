@@ -23,7 +23,7 @@ if ($data['mobile'] == ''  or $data['password'] == '') {
             $c = $c->fetch_assoc();
             $dc = $con->query("select * from area_db where name='" . $c['area'] . "'");
             $vb = $dc->fetch_assoc();
-            $returnArr = array("user" => $c, "d_charge" => $vb['dcharge'], "ResponseCode" => "200", "Result" => "true", "ResponseMsg" => "Login successfully!");
+            $returnArr = array("user" => $c, "d_charge" => $vb['dcharge'], "ResponseCode" => "200", "Result" => "true", "ResponseMsg" => "Login Successfull!");
             
             // Sendgrid Mail Integration
             $email = new \SendGrid\Mail\Mail();
