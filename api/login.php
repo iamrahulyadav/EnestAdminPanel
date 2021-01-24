@@ -9,29 +9,30 @@ define('CALL', $getkey['callsupport']);
 
 $data = json_decode(file_get_contents('php://input'), true);
 if ($data['mobile'] == ''  or $data['password'] == '') {
-    $returnArr = array("ResponseCode" => "401", "Result" => "false", "ResponseMsg" => "Something Went Wrong!");
+  $returnArr = array("ResponseCode" => "401", "Result" => "false", "ResponseMsg" => "Something Went Wrong!");
 } else {
-    $mobile = strip_tags(mysqli_real_escape_string($con, $data['mobile']));
-    $imei = strip_tags(mysqli_real_escape_string($con, $data['imei']));
-    $password = strip_tags(mysqli_real_escape_string($con, $data['password']));
+  $mobile = strip_tags(mysqli_real_escape_string($con, $data['mobile']));
+  $imei = strip_tags(mysqli_real_escape_string($con, $data['imei']));
+  $password = strip_tags(mysqli_real_escape_string($con, $data['password']));
 
-    $chek = $con->query("select * from user where (mobile='" . $mobile . "' or email='" . $mobile . "') and status = 1 and password='" . $password . "'");
-    $status = $con->query("select * from user where status = 1");
-    if ($status->num_rows != 0) {
-        if ($chek->num_rows != 0) {
-            $c = $con->query("select * from user where (mobile='" . $mobile . "' or email='" . $mobile . "')  and status = 1 and password='" . $password . "'");
-            $c = $c->fetch_assoc();
-            $dc = $con->query("select * from area_db where name='" . $c['area'] . "'");
-            $vb = $dc->fetch_assoc();
-            $returnArr = array("user" => $c, "d_charge" => $vb['dcharge'], "ResponseCode" => "200", "Result" => "true", "ResponseMsg" => "Login Successfull!");
-            
-            // Sendgrid Mail Integration
-            $email = new \SendGrid\Mail\Mail();
-            $email->setFrom(API_EMAIL, "E-Nest");
-            $email->setSubject("New Sign-in on Enest App");
-            $email->addTo($c['email'], $c['name']);
-            $email->addContent(
-                "text/html", "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">
+  $chek = $con->query("select * from user where (mobile='" . $mobile . "' or email='" . $mobile . "') and status = 1 and password='" . $password . "'");
+  $status = $con->query("select * from user where status = 1");
+  if ($status->num_rows != 0) {
+    if ($chek->num_rows != 0) {
+      $c = $con->query("select * from user where (mobile='" . $mobile . "' or email='" . $mobile . "')  and status = 1 and password='" . $password . "'");
+      $c = $c->fetch_assoc();
+      $dc = $con->query("select * from area_db where name='" . $c['area'] . "'");
+      $vb = $dc->fetch_assoc();
+      $returnArr = array("user" => $c, "d_charge" => $vb['dcharge'], "ResponseCode" => "200", "Result" => "true", "ResponseMsg" => "Login Successfull!");
+
+      // Sendgrid Mail Integration
+      $email = new \SendGrid\Mail\Mail();
+      $email->setFrom(API_EMAIL, "E-Nest");
+      $email->setSubject("New Sign-in on Enest App");
+      $email->addTo($c['email'], $c['name']);
+      $email->addContent(
+        "text/html",
+        "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">
                 <html xmlns=\"http://www.w3.org/1999/xhtml\" xmlns:o=\"urn:schemas-microsoft-com:office:office\" style=\"width:100%;font-family:arial, 'helvetica neue', helvetica, sans-serif;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;padding:0;Margin:0\">
                  <head> 
                   <meta charset=\"UTF-8\"> 
@@ -121,7 +122,7 @@ if ($data['mobile'] == ''  or $data['password'] == '') {
                                   <td align=\"center\" valign=\"top\" style=\"padding:0;Margin:0;width:560px\"> 
                                    <table cellpadding=\"0\" cellspacing=\"0\" width=\"100%\" role=\"presentation\" style=\"mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px\"> 
                                      <tr style=\"border-collapse:collapse\"> 
-                                      <td align=\"left\" style=\"padding:40px;Margin:0\"><p style=\"Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;color:#333333\"><strong><span>Hi ".$c['name'].",</span></strong><br><br></p><p style=\"Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;color:#333333\"><br></p><p style=\"Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;color:#333333\">Greetings from Enest!</p><p style=\"Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;color:#333333\"><br></p><p style=\"Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;color:#333333\"><br></p><p style=\"Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;color:#333333\">We've received a log-in request from your account in the E-Nest Application.</p><p style=\"Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;color:#333333\"><br></p><p style=\"Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;color:#333333\">If not done by you, please call us at <a href=\"tel:" . CALL . "\" target=\"_blank\" style=\"-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;font-size:14px;text-decoration:underline;color:#1376C8\">+917602630763</a> or email us your issue at <a href=\"mailto:support@enest.store?subject=Unusual%20Log-in%20request%20from%20my%20account.\" target=\"_blank\" style=\"-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;font-size:14px;text-decoration:underline;color:#1376C8\">support@enest.store</a></p><p style=\"Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;color:#333333\"><br></p><p style=\"Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;color:#333333\"><br></p><p style=\"Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;color:#333333\"><br></p><p style=\"Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;color:#333333\"><br></p><p style=\"Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;color:#333333\">Best Wishes,</p><p style=\"Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;color:#333333\">Team Enest.</p></td> 
+                                      <td align=\"left\" style=\"padding:40px;Margin:0\"><p style=\"Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;color:#333333\"><strong><span>Hi " . strtok($c['name'], " ") . ",</span></strong><br><br></p><p style=\"Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;color:#333333\"><br></p><p style=\"Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;color:#333333\">Greetings from Enest!</p><p style=\"Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;color:#333333\"><br></p><p style=\"Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;color:#333333\"><br></p><p style=\"Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;color:#333333\">We've received a log-in request from your account in the E-Nest Application.</p><p style=\"Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;color:#333333\"><br></p><p style=\"Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;color:#333333\">If not done by you, please call us at <a href=\"tel:" . CALL . "\" target=\"_blank\" style=\"-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;font-size:14px;text-decoration:underline;color:#1376C8\">+917602630763</a> or email us your issue at <a href=\"mailto:support@enest.store?subject=Unusual%20Log-in%20request%20from%20my%20account.\" target=\"_blank\" style=\"-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;font-size:14px;text-decoration:underline;color:#1376C8\">support@enest.store</a></p><p style=\"Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;color:#333333\"><br></p><p style=\"Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;color:#333333\"><br></p><p style=\"Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;color:#333333\"><br></p><p style=\"Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;color:#333333\"><br></p><p style=\"Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;color:#333333\">Best Wishes,</p><p style=\"Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;color:#333333\">Team Enest.</p></td> 
                                      </tr> 
                                    </table></td> 
                                  </tr> 
@@ -148,18 +149,18 @@ if ($data['mobile'] == ''  or $data['password'] == '') {
                   </div>  
                  </body>
                 </html>"
-            );
-            $sendgrid = new \SendGrid(API_KEY);
-            try {
-                $response = $sendgrid->send($email);
-            } catch (Exception $e) {
-            }
-        } else {
-            $returnArr = array("ResponseCode" => "401", "Result" => "false", "ResponseMsg" => "Invalid Email/Mobile No or Password!!!");
-        }
+      );
+      $sendgrid = new \SendGrid(API_KEY);
+      try {
+        $response = $sendgrid->send($email);
+      } catch (Exception $e) {
+      }
     } else {
-        $returnArr = array("ResponseCode" => "401", "Result" => "false", "ResponseMsg" => "Your Status Deactivate!!!");
+      $returnArr = array("ResponseCode" => "401", "Result" => "false", "ResponseMsg" => "Invalid Email/Mobile No or Password!!!");
     }
+  } else {
+    $returnArr = array("ResponseCode" => "401", "Result" => "false", "ResponseMsg" => "Your Status Deactivate!!!");
+  }
 }
 
 echo json_encode($returnArr);
