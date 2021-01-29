@@ -28,13 +28,17 @@ if ($oid == '' or $status == '' or $rid == '') {
 			$con->query("update orders set status='processing',a_status=2,r_status='Accepted' where id=" . $oid . "");
 			$con->query("update rider set accept = accept+1 where id=" . $rid . "");
 			$checks = $con->query("select * from orders where id=" . $oid . "")->fetch_assoc();
+			$heading = array(
+				"en" => 'Your Order Has Been Accepted 🔔' //mesaj burasi
+			);
 			$content = array(
-				"en" => 'Your Order Has Been Accepted.' //mesaj burasi
+				"en" => 'Order No.: ' . $oid . ' is on the way.'
 			);
 			$fields = array(
 				'app_id' => ONE_KEY,
-				'included_segments' =>  array("Active Users"),
+				'included_segments' =>  array("Subscribed Users"),
 				'filters' => array(array('field' => 'tag', 'key' => 'userId', 'relation' => '=', 'value' => $checks['uid'])),
+				'headings' => $heading,
 				'contents' => $content
 			);
 			$fields = json_encode($fields);
@@ -69,13 +73,17 @@ if ($oid == '' or $status == '' or $rid == '') {
 			$con->query("update orders set a_status=4,r_status='Cancelled',status='cancelled',s_photo='" . $comment . "' where id=" . $oid . "");
 
 			$checks = $con->query("select * from orders where id=" . $oid . "")->fetch_assoc();
+			$heading = array(
+				"en" => 'Your Order Has Been Cancelled 🔔'
+			);
 			$content = array(
-				"en" => 'Your Order Has Been Cancelled. Order No. ' . $oid //mesaj burasi
+				"en" => 'Order No.: ' . $oid //mesaj burasi
 			);
 			$fields = array(
 				'app_id' => ONE_KEY,
-				'included_segments' =>  array("Active Users"),
+				'included_segments' =>  array("Subscribed Users"),
 				'filters' => array(array('field' => 'tag', 'key' => 'userId', 'relation' => '=', 'value' => $checks['uid'])),
+				'headings' => $heading,
 				'contents' => $content
 			);
 			$fields = json_encode($fields);
@@ -398,13 +406,17 @@ if ($oid == '' or $status == '' or $rid == '') {
 			$con->query("update rider set complete = complete + 1 where id=" . $rid . "");
 
 			$checks = $con->query("select * from orders where id=" . $oid . "")->fetch_assoc();
+			$heading = array(
+				"en" => 'Your Order has been delivered successfully 🔔'
+			);
 			$content = array(
-				"en" => 'Your Order has been Delivered Successfully. Order No. ' . $oid //mesaj burasi
+				"en" => 'Order No.: ' . $oid //mesaj burasi
 			);
 			$fields = array(
 				'app_id' => ONE_KEY,
-				'included_segments' =>  array("Active Users"),
+				'included_segments' =>  array("Subscribed Users"),
 				'filters' => array(array('field' => 'tag', 'key' => 'userId', 'relation' => '=', 'value' => $checks['uid'])),
+				'headings' => $heading,
 				'contents' => $content
 			);
 			$fields = json_encode($fields);

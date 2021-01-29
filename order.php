@@ -82,15 +82,15 @@ define('r_hash', $getkey['r_hash']);
                       if ($check['r_status'] != 'Accepted') {
                         $timestamp = date("Y-m-d H:i:s");
                         $con->query("update orders set rid=" . $rid . ",pickup='" . $pickup . "',a_status=1,r_status='Assigned' where id=" . $id . "");
-                        $con->query("insert into rnoti(`rid`,`msg`,`date`)values(" . $rid . ",'You have an order assigned to you.','" . $timestamp . "')");
-                        $content = array(
-                          "en" => 'You have an order assigned to you.' //mesaj burasi
+                        $con->query("insert into rnoti(`rid`,`msg`,`date`)values(" . $rid . ",'You have an order assigned to you. 🔔','" . $timestamp . "')");
+                        $heading = array(
+                          "en" => 'You have an order assigned to you. 🔔' //mesaj burasi
                         );
                         $fields = array(
                           'app_id' => r_key,
-                          'included_segments' =>  array("Active Users"),
+                          'included_segments' =>  array("Subscribed Users"),
                           'filters' => array(array('field' => 'tag', 'key' => 'rider_id', 'relation' => '=', 'value' => $rid)),
-                          'contents' => $content
+                          'headings' => $heading
                         );
                         $fields = json_encode($fields);
 
@@ -117,7 +117,7 @@ define('r_hash', $getkey['r_hash']);
                         <script type="text/javascript">
                           $(document).ready(function() {
                             toastr.options.timeOut = 4500; // 1.5s
-                            toastr.info('Assign Delivery Boy Successfully!!!');
+                            toastr.info('Delivery Boy Assigned Successfully!!!');
                             window.location.href = "order.php";
 
                           });
@@ -128,7 +128,7 @@ define('r_hash', $getkey['r_hash']);
                         <script type="text/javascript">
                           $(document).ready(function() {
                             toastr.options.timeOut = 4500; // 1.5s
-                            toastr.error('Assign Delivery Boy Already Accepted Order So Can not Change Delivery Boy.');
+                            toastr.error('Assigned Delivery Boy Already Accepted Order So Cannot Change Delivery Boy.');
                             window.location.href = "order.php";
 
                           });

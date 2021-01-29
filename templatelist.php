@@ -1,6 +1,6 @@
  <?php
   require 'include/header.php';
-  $getkey = mysqli_fetch_assoc(mysqli_query($con, "select * from setting"));
+  $getkey = $con->query("select * from setting")->fetch_assoc();
   define('ONE_KEY', $getkey['one_key']);
   define('ONE_HASH', $getkey['one_hash']);
   ?>
@@ -52,20 +52,20 @@
 
                                <td><?php echo $i; ?></td>
                                <td><?php echo $row['title']; ?></td>
-                               <td style="    min-width: 100px;
-    word-break: break-word;"><?php echo $row['message']; ?></td>
+                               <td><?php echo $row['message']; ?></td>
                                <td><?php if ($row['url'] == 'no_url') {
-                                      echo $row['url'];
+                                      echo "No Image Inserted";
                                     } else { ?>
                                    <img src="<?php echo $row['url']; ?>" width="100" height="100" />
                                  <?php } ?>
                                </td>
 
-                               <td style="    display: flex;">
+                               <td style="display: flex;">
                                  <form method="post">
                                    <input type="hidden" name="nid" value="<?php echo $row['id']; ?>" />
-                                   <button class="primary" type="submit" style="    border: none;
-    background: transparent;"><i class="ft-bell font-medium-3"></i></button>
+                                   <button class="primary" type="submit" style="border: none; background: transparent;">
+                                     <i class="ft-bell font-medium-3"></i>
+                                   </button>
                                  </form>
 
 
@@ -116,15 +116,18 @@
               $msg = mysqli_real_escape_string($con, $udata['message']);
               $title = mysqli_real_escape_string($con, $udata['title']);
               $url = $udata['url'];
-
+              $heading = array(
+                "en" => $title . ' 🔔'
+              );
               $content = array(
-                "en" => $title
+                "en" => $msg
               );
 
               $fields = array(
                 'app_id' => ONE_KEY,
-                'included_segments' => array('Active Users'),
+                'included_segments' => array('Subscribed Users'),
                 'data' => array("url" => $url, "message" => $msg),
+                'headings' => $heading,
                 'contents' => $content
               );
 
@@ -155,7 +158,7 @@
                $(document).ready(function() {
                  toastr.options.timeOut = 4500; // 1.5s
 
-                 toastr.info('Notification Send Successfully!!!');
+                 toastr.info('Notification Sent Successfully!!!');
                  setTimeout(function() {
                    window.location.href = "templatelist.php";
                  }, 1500);
