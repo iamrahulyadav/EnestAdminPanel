@@ -86,11 +86,15 @@ define('r_hash', $getkey['r_hash']);
                         $heading = array(
                           "en" => 'You have an order assigned to you. 🔔' //mesaj burasi
                         );
+                        $content = array(
+                          "en" => 'Order No.: ' . $id
+                        );
                         $fields = array(
                           'app_id' => r_key,
                           'included_segments' =>  array("Subscribed Users"),
                           'filters' => array(array('field' => 'tag', 'key' => 'rider_id', 'relation' => '=', 'value' => $rid)),
-                          'headings' => $heading
+                          'headings' => $heading,
+                          'contents' => $content
                         );
                         $fields = json_encode($fields);
 
