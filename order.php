@@ -45,7 +45,7 @@ define('r_hash', $getkey['r_hash']);
                             <div class="form-group">
                               <label for="cname">Select Delivery Boy</label>
                               <select name="srider" class="form-control">
-                                <option value="">select a Delivery Boy</option>
+                                <option value="">Select A Delivery Boy</option>
                                 <?php
                                 $rid = $con->query("select * from rider where a_status=1 and status=1");
                                 while ($ro = $rid->fetch_assoc()) {
